@@ -145,7 +145,7 @@ function minMaxAvg(arr) {
 
 }
 
-console.log(minMaxAvg([1, 2, 3, 3, 3, 3]));
+// console.log(minMaxAvg([1, 2, 3, 3, 3, 3]));
 
 function minMaxAvgRecursive(arr, i = 0, min = 0, max = 0, sum = 0) {
     if (arr.length == 0) {
@@ -167,4 +167,99 @@ function minMaxAvgRecursive(arr, i = 0, min = 0, max = 0, sum = 0) {
     return minMaxAvgRecursive(arr, i += 1, min, max, sum)
 }
 
-console.log(minMaxAvgRecursive([1, 2, 3, 3, 3, 13]))
+// console.log(minMaxAvgRecursive([1, 2, 3, 3, 3, 13]))
+
+function swapString(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) {
+            arr[i] = 'Negative Value'
+        }
+    }
+    return arr
+}
+var test = [-1, 2, 2, -2, 4, 4, 4]
+// test = swapString(test);
+// console.log(test)
+
+function swapStringRecursive(arr, index = 0) {
+    if (index == arr.length) {
+        return arr
+    }
+    if (arr[index] < 0) {
+        arr[index] = 'negative value'
+    };
+
+    return swapStringRecursive(arr, index += 1)
+}
+
+// test = swapStringRecursive(test);
+// console.log(test)
+
+function createOddArray(n) {
+    var oddArr = [];
+    for (var i = 1; i <= n; i += 2) {
+        oddArr.push(i)
+    }
+    return oddArr
+}
+// console.log(createOddArray(255))
+
+function createOddArrayRecursive(n, index = 0, arr = []) {
+    if (n <= 0) {
+        return arr;
+    }
+    if (arr.length == 0) {
+        arr[0] = 1;
+    } else {
+        arr[index] = arr[index - 1] + 2
+    }
+    return createOddArrayRecursive(n -= 2, index += 1, arr)
+}
+
+// console.log(createOddArrayRecursive(255))
+
+function arrayAvg(arr) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+        sum += arr[i]
+    };
+    return sum / arr.length;
+}
+
+var test = [10, 10, 10, 30]
+// console.log(arrayAvg(test))
+
+function arrayAvgRecursive(arr, i = 0, sum = 0) {
+
+    if (i == arr.length) {
+        return sum / arr.length;
+    }
+    sum += arr[i];
+
+    return arrayAvgRecursive(arr, i += 1, sum)
+}
+
+// console.log(arrayAvgRecursive(test))
+
+
+
+function shiftLeft(arr) {
+    for (var i = 1; i < arr.length; i++) {
+        arr[i - 1] = arr[i]
+    }
+    arr[arr.length - 1] = 0;
+    return arr
+}
+
+// console.log(shiftLeft(test))
+
+function shiftLeftRecursive(arr, index = 1) {
+    if (index == arr.length) {
+        arr[index - 1] = 0;
+        return arr;
+    }
+    arr[index - 1] = arr[index]
+    return shiftLeftRecursive(arr, index += 1)
+}
+
+// console.log(shiftLeftRecursive(test))
