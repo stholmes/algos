@@ -96,4 +96,75 @@ function returnOddsRecursive(num, arr = [], i = 1) {
     return returnOddsRecursive(num, arr, i += 2);
 }
 
-console.log(returnOddsRecursive(255))
+function greaterThan(n, arr) {
+    var count = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] > n) {
+            count += 1;
+            console.log(`${arr[i]}, count: ${count}`)
+        }
+    }
+    return
+}
+
+var test = [1, 19, 2, 32, 4, 299, 2839, 67, 3, 8480, 49]
+// greaterThan(25, test)
+
+function greaterThanRecursive(n, arr, i = 0, counter = 0) {
+    if (arr.length == 0) {
+        console.log(`Arry is empty`);
+    }
+    if (i < arr.length) {
+        if (arr[i] > n) {
+            counter += 1;
+            console.log(`${arr[i]}, count: ${counter}`)
+        }
+        return greaterThanRecursive(n, arr, i += 1, counter);
+    }
+    return
+}
+
+// greaterThanRecursive(700, test)
+
+function minMaxAvg(arr) {
+    if (arr.length == 0) {
+        return `No min, max or average values`
+    }
+    var [min, max, count, sum] = [arr[0], arr[0], 0, 0]
+
+    for (let i = 0; i < arr.length; i++) {
+        count += 1
+        sum += arr[i]
+        if (min > arr[i]) {
+            min = arr[i]
+        } else if (max < arr[i]) {
+            max = arr[i]
+        }
+    }
+    return `max: ${max}, min: ${min}, average: ${sum/count}`
+
+}
+
+console.log(minMaxAvg([1, 2, 3, 3, 3, 3]));
+
+function minMaxAvgRecursive(arr, i = 0, min = 0, max = 0, sum = 0) {
+    if (arr.length == 0) {
+        return `No min, max or average values`;
+    }
+    if (i == arr.length) {
+        return `max: ${max}, min: ${min}, average: ${sum/(i)}`;
+    }
+    if (i == 0) {
+        min = arr[0];
+        max = arr[0];
+    };
+    if (min > arr[i]) {
+        min = arr[i]
+    } else if (max < arr[i]) {
+        max = arr[i];
+    }
+    sum += arr[i]
+    return minMaxAvgRecursive(arr, i += 1, min, max, sum)
+}
+
+console.log(minMaxAvgRecursive([1, 2, 3, 3, 3, 13]))
