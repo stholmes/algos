@@ -75,6 +75,25 @@ function ArrayMaxRecursive(arr, i = 0, max = 0) {
     return ArrayMaxRecursive(arr, i += 1, max = max);
 }
 
-var test = [1, 10, 10000, 100]
-var max = ArrayMaxRecursive(test);
-console.log(max)
+// var test = [1, 10, 10000, 100]
+// var max = ArrayMaxRecursive(test);
+// console.log(max)
+
+function returnOdds(arr) {
+    var oddArr = [];
+    for (var i = 1; i <= arr; i += 2) {
+        oddArr.push(i)
+    };
+    return oddArr
+}
+// console.log(returnOdds(255))
+function returnOddsRecursive(num, arr = [], i = 1) {
+    if (i == num) {
+        arr.push(num);
+        return arr;
+    }
+    arr.push(i);
+    return returnOddsRecursive(num, arr, i += 2);
+}
+
+console.log(returnOddsRecursive(255))
