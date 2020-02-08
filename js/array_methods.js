@@ -72,7 +72,6 @@ removeDuplicates = (arr)=>{
                 dupeList.push(arr[i])
             }
         }
-            
     }
     return dupeList;
 }
@@ -93,15 +92,14 @@ removeDupes = (arr)=>{
         }else{
             dedupe.push(arr[tail]);
             tail = head;
-            
         }
     }
     return dedupe;
 }
 
-var test = [0,1,2,2,3,4,4,4,4,4,5]
-var x = removeDupes(test)
-console.log(x)
+// var test = [0,1,2,2,3,4,4,4,4,4,5]
+// var x = removeDupes(test)
+// console.log(x)
 //[0,1,2,2,3]
 minToFront = (arr) =>{
     var min = arr[0];
@@ -122,3 +120,46 @@ minToFront = (arr) =>{
 // var test = [2,3,-1,4,5,6,7,0,9]
 // var x = minToFront(test);
 // console.log(x)
+
+reverse = (arr) =>{
+    
+    for( let i = 0 ; i < (arr.length)/2 ; i++){
+        var temp = arr[i];
+        arr[i] = arr[arr.length-1-i];
+        arr[arr.length-1-i] = temp;
+    }
+    return arr;
+}
+
+// var test = [0,1,2,3,4,5,6,7,8,9]
+// console.log(reverse(test));
+
+rotateArr = (arr, shiftBy) => {
+    var isRightShift = true;
+    if(shiftBy < 0 ){
+        isRightShift = false;
+    }
+    if(Math.abs(shiftBy) > arr.length){
+        shiftBy = shiftBy % arr.length
+    }
+    for(let i = 0 ; i < Math.abs(shiftBy) ; i++){
+        if(isRightShift){
+            var lastVal = arr[arr.length-1];
+            for(let j = arr.length - 1; j > 0 ; j--){
+                arr[j] = arr[j-1];
+            }
+            arr[0] = lastVal;
+        }else{
+            var lastVal = arr[0];
+            for(let j = 0; j < arr.length - 1 ; j++){
+                arr[j] = arr[j+1]
+            }
+            arr[arr.length-1] = lastVal;
+        }
+    }
+
+    return arr
+    
+}
+
+console.log(rotateArr([0,1,2],-10))
