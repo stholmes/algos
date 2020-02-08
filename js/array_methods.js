@@ -83,9 +83,26 @@ removeDuplicates = (arr)=>{
 
 //Without a nested for loop
 removeDupes = (arr)=>{
-
+    var head = 1;
+    var tail = 0;
+    var dedupe = [];
+    for(let i = 1 ; i < arr.length ; i++){
+        head = i;
+        if(arr[head] == arr[tail]){
+            continue;
+        }else{
+            dedupe.push(arr[tail]);
+            tail = head;
+            
+        }
+    }
+    return dedupe;
 }
 
+var test = [0,1,2,2,3,4,4,4,4,4,5]
+var x = removeDupes(test)
+console.log(x)
+//[0,1,2,2,3]
 minToFront = (arr) =>{
     var min = arr[0];
     var minIndex = 0
@@ -102,6 +119,6 @@ minToFront = (arr) =>{
     return arr;
 }
 
-var test = [2,3,-1,4,5,6,7,0,9]
-var x = minToFront(test);
-console.log(x)
+// var test = [2,3,-1,4,5,6,7,0,9]
+// var x = minToFront(test);
+// console.log(x)
