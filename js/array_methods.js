@@ -162,4 +162,23 @@ rotateArr = (arr, shiftBy) => {
     
 }
 
-console.log(rotateArr([0,1,2],-10))
+//console.log(rotateArr([0,1,2],-10))
+
+filterRange = (arr, min, max) =>{
+    var removeCount = 0;
+    for( let i = 0 ; i < arr.length ; i++){
+        if(arr[i] > min && arr[i] < max){
+            continue;
+        }
+        while(arr[i] < min || arr[i] > max){
+            for(let j = i ; j < arr.length-1; j++){
+                arr[j] = arr[j+1]
+            }
+            arr.pop();
+        }
+    }
+    return arr;
+}
+
+// let x = filterRange([0,2,0,3,0,0,0,5,6,10,2], 1,5)
+// console.log(x)
