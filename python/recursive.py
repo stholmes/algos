@@ -12,4 +12,12 @@ def factorial(num):
         return 1
     return num * factorial(num-1)
 
-print(factorial(10))
+def pallindrome(str, i = 0):
+    if i == len(str)/2 or i < len(str)/2 and str[i] == str[len(str)-1-i]:
+        return f'{str} is a pallindrome'
+
+    if str[i] == str[len(str)-1-i]:
+        return pallindrome(str, i = i + 1)
+    else:
+        return f'{str} is not a pallindrome'
+
