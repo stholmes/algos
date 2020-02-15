@@ -32,10 +32,16 @@ class Stack:
         self.In.display()
         return self
 
+    def pop(self):
+        for i in range(len(self.In.queue)-1):
+            self.Out.push(self.In.popFront())
+        temp = self.In.popFront()
+        for i in range(len(self.Out.queue)):
+            self.In.push(self.Out.popFront())
+        return temp
+
 stack = Stack()
 
 stack.push(0).push(1).push(2)
-
-print("Test")
-stack.display()
+print(stack.pop())
 
