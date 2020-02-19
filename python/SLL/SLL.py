@@ -34,6 +34,11 @@ class SLList:
         runner.next = None
         return temp
 
+    def removeFront(self):
+        temp = self.head
+        self.head = temp.next
+        return temp
+
 
 class SLNode:
     def __init__(self, value):
@@ -42,9 +47,9 @@ class SLNode:
 
 
 test = SLList()
-test.push(7).push(8).print()
+test.push(7).push(8)
 test.addToFront(6).addToFront(5).push(9)
 test.print()
-node = test.pop()
-print(node.value)
+print('New Line')
+test.removeFront()
 test.print()
