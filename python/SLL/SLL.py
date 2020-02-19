@@ -39,6 +39,18 @@ class SLList:
         self.head = temp.next
         return temp
 
+    def add(self, val):
+        if self.head == None:
+            return self.addToFront(self, val)
+        start = self.head.next
+        end = self.head
+        while start.value < val:
+            start = start.next
+            end = end.next
+        end.next = SLNode(val)
+        end.next.next = start
+        return self
+
 
 class SLNode:
     def __init__(self, value):
@@ -48,8 +60,7 @@ class SLNode:
 
 test = SLList()
 test.push(7).push(8)
-test.addToFront(6).addToFront(5).push(9)
+test.addToFront(6).addToFront(5).push(10)
 test.print()
 print('New Line')
-test.removeFront()
-test.print()
+test.add(9).print()
