@@ -1,6 +1,7 @@
 class SLList:
     def __init__(self):
         self.head = None
+       
 
     def push(self, value):
         if (self.head == None):
@@ -51,6 +52,13 @@ class SLList:
         end.next.next = start
         return self
 
+    def length(self):
+        counter = 0
+        runner = self.head
+        while(runner.next != None):
+            counter += 1
+            runner = runner.next
+        return counter
 
 class SLNode:
     def __init__(self, value):
@@ -61,6 +69,7 @@ class SLNode:
 test = SLList()
 test.push(7).push(8)
 test.addToFront(6).addToFront(5).push(10)
-test.print()
-print('New Line')
-test.add(9).print()
+
+test.add(9)
+
+print(test.length())
