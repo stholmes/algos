@@ -60,6 +60,16 @@ class SLList:
             runner = runner.next
         return counter
 
+    def findValue(self, val):
+        counter = 0;
+        runner = self.head
+        while(runner.next != None):
+            if(runner.value == val):
+                break
+            counter += 1
+            runner = runner.next
+        return counter
+
 class SLNode:
     def __init__(self, value):
         self.value = value
@@ -72,4 +82,4 @@ test.addToFront(6).addToFront(5).push(10)
 
 test.add(9)
 
-print(test.length())
+print(test.findValue(5))
