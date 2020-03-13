@@ -20,6 +20,8 @@ class SLList:
         return self
 
     def print(self):
+        if (self.head == None):
+            return 'No values'
         runner = self.head
         while (runner.next != None):
             print(runner.value)
@@ -28,6 +30,8 @@ class SLList:
         return self
 
     def pop(self):
+        if (self.head == None):
+            return 'No nodes to remove'
         runner = self.head
         while (runner.next.next != None):
             runner = runner.next
@@ -36,6 +40,8 @@ class SLList:
         return temp
 
     def removeFront(self):
+        if (self.head == None):
+            return 'No nodes to remove'
         temp = self.head
         self.head = temp.next
         return temp
